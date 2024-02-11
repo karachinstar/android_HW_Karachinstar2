@@ -10,7 +10,8 @@ class MainActivity : AppCompatActivity() {
     var countPass = 0
     var countPlace = 49
     private var binding: ActivityMainBinding? = null
-//    val binding = ActivityMainBinding.inflate(layoutInflater)
+
+    //    val binding = ActivityMainBinding.inflate(layoutInflater)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -41,7 +42,6 @@ class MainActivity : AppCompatActivity() {
                 binding!!.textCountPassengers.text = countPass.toString()
             } else if (countPass > 50) {
                 countPass--
-    //                        binding!!.centralText.text = "Осталось мест: $counter2"
                 binding!!.textCountPassengers.text = countPass.toString()
             } else {
                 starSetting()
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun starSetting(){
+    private fun starSetting() {
         countPass = 0
         binding!!.buttonMinus.isEnabled = false
         binding!!.buttonRemove.visibility = View.INVISIBLE

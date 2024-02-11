@@ -9,11 +9,11 @@
 
     <TextView
         android:id="@+id/centralText"
-        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textSize="20dp" />
 
     <ImageButton
         android:id="@+id/buttonMinus"
@@ -26,32 +26,31 @@
 
     <TextView
         android:id="@+id/buttonRemove"
-        android:background="@drawable/slector_button"
-        android:padding="30dp"
-        android:textColor="@color/white"
-        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="СБРОС" />
+        android:background="@drawable/slector_button"
+        android:padding="30dp"
+        android:text="СБРОС"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/textCountPassengers"
-        android:textSize="60dp"
-        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
-         />
+        android:textColor="@color/black"
+        android:textSize="60dp" />
 
     <ImageButton
         android:id="@+id/buttonPlus"
-        android:background="@drawable/slector_button"
-        android:padding="30dp"
-        android:src="@drawable/plus_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right" />
+        android:layout_gravity="bottom|right"
+        android:background="@drawable/slector_button"
+        android:padding="30dp"
+        android:src="@drawable/plus_icon" />
 
 
 </FrameLayout>
