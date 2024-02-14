@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+
+
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/image_album"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/dead_by_april"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/button_play"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:background="#FDF6FE"
+        android:src="@drawable/play_arrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_album"
+        app:layout_goneMarginEnd="70dp" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:background="#FDF6FE"
+        android:src="@drawable/skip_next"
+        app:layout_constraintBottom_toBottomOf="@id/button_play"
+        app:layout_constraintStart_toEndOf="@id/button_play"
+        app:layout_constraintTop_toTopOf="@id/button_play" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:background="#FDF6FE"
+        android:src="@drawable/skip_previous"
+        app:layout_constraintBottom_toBottomOf="@id/button_play"
+        app:layout_constraintEnd_toStartOf="@id/button_play"
+        app:layout_constraintTop_toTopOf="@id/button_play" />
+
+    <TextView
+        android:id="@+id/executor"
+        android:text="Исполнитель"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/button_play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/composition"
+        android:text="Название композиции"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/executor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

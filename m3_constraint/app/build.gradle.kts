@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "ru.gb.android.hw2.m2_layout"
+    namespace = "ru.gb.android.hw2.m3_constraint"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "ru.gb.android.hw2.m2_layout"
+        applicationId = "ru.gb.android.hw2.m3_constraint"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -47,5 +47,4 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
 }
