@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/user_image"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="16dp"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -130,7 +130,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/points_text"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/textViewSex"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxNewItems"
         android:layout_marginTop="16dp"/>
@@ -141,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/points_of_number"
-        android:textColor="#444444"
+        android:textColor="@color/gray"
         app:layout_constraintEnd_toEndOf="@+id/progressBar"
         app:layout_constraintTop_toTopOf="@+id/textViewPointsText"/>
 
