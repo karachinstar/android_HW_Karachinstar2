@@ -25,7 +25,7 @@ class ResultFragment : Fragment() {
         val results = args.result
         binding.result.setText(results)
         binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_resultFragment_to_startFragment)
+            findNavController().navigate(R.id.action_resultFragment_to_quizFragment)
         }
         return view
     }
