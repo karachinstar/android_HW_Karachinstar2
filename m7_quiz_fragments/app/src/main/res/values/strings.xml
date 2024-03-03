@@ -9,19 +9,27 @@
     <string name="button_result_text">Начать заново</string>
 
     <string name="image_description">welcome image</string>
-    <string name="music_quiz">MUSIC QUIZ</string>
+    <string name="all_quiz">Все, везде и сразу</string>
     <string name="result_title">Ваш результат:</string>
 
-    <string name="question_1">Сколько участников в kpop группе BTS?</string>
-    <string name="answer_to_1_1">0</string>
-    <string name="answer_to_1_2">7</string>
+    <string name="question_1">В чем измеряется проводимость горных пород в методе мЗСБ?</string>
+    <string name="answer_to_1_1">Сименс</string>
+    <string name="answer_to_1_2">Филипс</string>
 
-    <string name="question_2">Как называется лейбл звукозаписи chief keef-a?</string>
-    <string name="answer_to_2_1">GLO GANG</string>
-    <string name="answer_to_2_2">DRAIN GANG</string>
+    <string name="question_2">В каком году вышла игра World Of Warcraft?</string>
+    <string name="answer_to_2_1">2001</string>
+    <string name="answer_to_2_2">2004</string>
 
-    <string name="question_3">Настоящее имя исполнителя Blood Orange?</string>
-    <string name="answer_to_3_1">Devonté Hynes</string>
-    <string name="answer_to_3_2">Rakim Athelaston Mayers</string>
+    <string name="question_3">Какой максимальный объем памяти ddr2 для пк?</string>
+    <string name="answer_to_3_1">32 Гб</string>
+    <string name="answer_to_3_2">16 Гб</string>
+
+    <string name="question_4">Рекорд мира по жиму лежа в кг?</string>
+    <string name="answer_to_4_1">427,5</string>
+    <string name="answer_to_4_2">527,5</string>
+
+    <string name="question_5">Какое количество мышц у человека?</string>
+    <string name="answer_to_5_1">620</string>
+    <string name="answer_to_5_2">640</string>
 
 </resources>

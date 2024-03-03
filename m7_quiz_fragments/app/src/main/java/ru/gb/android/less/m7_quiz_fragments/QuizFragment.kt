@@ -31,9 +31,11 @@ class QuizFragment : Fragment() {
     private fun getAnswersByUser(): Int {
         var correctAnswersCount = 0
 
-        if (binding.question1.checkedRadioButtonId == binding.answer12.id) correctAnswersCount++
-        if (binding.question2.checkedRadioButtonId == binding.answer21.id) correctAnswersCount++
-        if (binding.question3.checkedRadioButtonId == binding.answer31.id) correctAnswersCount++
+        if (binding.question1.checkedRadioButtonId == binding.answer11.id) correctAnswersCount++
+        if (binding.question2.checkedRadioButtonId == binding.answer22.id) correctAnswersCount++
+        if (binding.question3.checkedRadioButtonId == binding.answer32.id) correctAnswersCount++
+        if (binding.question4.checkedRadioButtonId == binding.answer41.id) correctAnswersCount++
+        if (binding.question5.checkedRadioButtonId == binding.answer52.id) correctAnswersCount++
 
         return correctAnswersCount
     }
