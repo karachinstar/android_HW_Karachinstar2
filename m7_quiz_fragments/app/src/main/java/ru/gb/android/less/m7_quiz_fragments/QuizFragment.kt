@@ -13,6 +13,7 @@ class QuizFragment : Fragment() {
     private var _binding: FragmentQuizBinding? = null
     private val binding get() = _binding!!
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -21,10 +22,22 @@ class QuizFragment : Fragment() {
         _binding = FragmentQuizBinding.inflate(inflater, container, false)
         val view = binding.root
         binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_quizFragment_to_resultFragment)
+            val action = QuizFragmentDirections.actionQuizFragmentToResultFragment(getAnswersByUser().toString())
+            findNavController().navigate(action)
         }
         return view
     }
+
+    private fun getAnswersByUser(): Int {
+        var correctAnswersCount = 0
+
+        if (binding.question1.checkedRadioButtonId == binding.answer12.id) correctAnswersCount++
+        if (binding.question2.checkedRadioButtonId == binding.answer21.id) correctAnswersCount++
+        if (binding.question3.checkedRadioButtonId == binding.answer31.id) correctAnswersCount++
+
+        return correctAnswersCount
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
