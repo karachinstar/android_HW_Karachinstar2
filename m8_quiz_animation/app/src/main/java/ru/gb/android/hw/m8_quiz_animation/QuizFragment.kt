@@ -1,4 +1,4 @@
-package ru.gb.android.less.m7_quiz_fragments
+package ru.gb.android.hw.m8_quiz_animation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
-import ru.gb.android.less.m7_quiz_fragments.databinding.FragmentQuizBinding
-import ru.gb.android.less.m7_quiz_fragments.databinding.FragmentStartBinding
+import ru.gb.android.hw.m8_quiz_animation.databinding.FragmentQuizBinding
+
 
 class QuizFragment : Fragment() {
     private var _binding: FragmentQuizBinding? = null
