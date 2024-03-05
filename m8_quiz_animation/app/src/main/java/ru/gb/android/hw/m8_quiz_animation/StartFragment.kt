@@ -1,5 +1,6 @@
 package ru.gb.android.hw.m8_quiz_animation
 
+import android.graphics.drawable.RippleDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,6 +30,14 @@ class StartFragment : Fragment() {
     ): View? {
         _binding = FragmentStartBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        binding.startButton.animate().apply {
+            duration = 3000
+            rotation(360f)
+            RippleDrawable.INSET_UNDEFINED
+
+        }.start()
+
         binding.startButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_startFragment_to_quizFragment)
             //findNavController().navigate(R.id.action_startFragment_to_quizFragment)

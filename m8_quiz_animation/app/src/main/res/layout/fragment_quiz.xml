@@ -42,7 +42,8 @@
             <RadioGroup
                 android:id="@+id/question1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:alpha="0">
 
                 <RadioButton
                     android:id="@+id/answer_1_1"
@@ -66,7 +67,8 @@
             <RadioGroup
                 android:id="@+id/question2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:alpha="0">
 
                 <RadioButton
                     android:id="@+id/answer_2_1"
@@ -90,7 +92,8 @@
             <RadioGroup
                 android:id="@+id/question3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:alpha="0">
 
                 <RadioButton
                     android:id="@+id/answer_3_1"
@@ -114,7 +117,8 @@
             <RadioGroup
                 android:id="@+id/question4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:alpha="0">
 
                 <RadioButton
                     android:id="@+id/answer_4_1"
@@ -138,7 +142,8 @@
             <RadioGroup
                 android:id="@+id/question5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:alpha="0">
 
                 <RadioButton
                     android:id="@+id/answer_5_1"

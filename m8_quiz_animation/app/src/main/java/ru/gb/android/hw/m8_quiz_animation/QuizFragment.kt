@@ -21,6 +21,38 @@ class QuizFragment : Fragment() {
     ): View? {
         _binding = FragmentQuizBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        binding.question1.animate().apply {
+            duration = 1000
+            alpha(1f)
+
+        }.start()
+
+        binding.question2.animate().apply {
+            duration = 2000
+            alpha(1f)
+
+        }.start()
+
+        binding.question3.animate().apply {
+            duration = 3000
+            alpha(1f)
+
+        }.start()
+
+        binding.question4.animate().apply {
+            duration = 4000
+            alpha(1f)
+
+        }.start()
+
+        binding.question5.animate().apply {
+            duration = 5000
+            alpha(1f)
+
+        }.start()
+
+
         binding.button.setOnClickListener {
             val action = QuizFragmentDirections.actionQuizFragmentToResultFragment(getAnswersByUser().toString())
             Navigation.findNavController(it).navigate(action)
