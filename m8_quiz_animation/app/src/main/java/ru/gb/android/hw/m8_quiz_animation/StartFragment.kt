@@ -35,7 +35,8 @@ class StartFragment : Fragment() {
         binding.startButton.animate().apply {
             duration = 3000
             rotation(360f)
-            RippleDrawable.INSET_UNDEFINED
+            translationY(-200f)
+           // RippleDrawable.INSET_UNDEFINED
 
         }.start()
 

@@ -25,6 +25,12 @@ class ResultFragment : Fragment() {
         val view = binding.root
         val results = args.result
         binding.result.setText(results)
+        binding.result.animate().apply {
+            duration = 1000
+            rotation(3240f)
+            scaleX(4f)
+            scaleY(4f)
+        }
 
         return view
     }

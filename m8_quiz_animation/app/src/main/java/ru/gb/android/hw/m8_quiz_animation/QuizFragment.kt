@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import ru.gb.android.hw.m8_quiz_animation.databinding.FragmentQuizBinding
 
 
@@ -60,7 +61,7 @@ class QuizFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.button.setOnClickListener {
             val action = QuizFragmentDirections.actionQuizFragmentToResultFragment(getAnswersByUser().toString())
-            findNavController(it).navigate(action)
+            findNavController().navigate(action)
         }
     }
 
