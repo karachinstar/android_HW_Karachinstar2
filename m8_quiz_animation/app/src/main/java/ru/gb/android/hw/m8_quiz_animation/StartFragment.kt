@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import ru.gb.android.hw.m8_quiz_animation.databinding.FragmentStartBinding
 
 
@@ -38,11 +39,16 @@ class StartFragment : Fragment() {
 
         }.start()
 
-        binding.startButton.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_startFragment_to_quizFragment)
-            //findNavController().navigate(R.id.action_startFragment_to_quizFragment)
-        }
+
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.startButton.setOnClickListener {
+            //Navigation.findNavController(it).navigate(R.id.action_startFragment_to_quizFragment)
+            findNavController().navigate(R.id.action_startFragment_to_quizFragment)
+        }
     }
 
     override fun onDestroy() {

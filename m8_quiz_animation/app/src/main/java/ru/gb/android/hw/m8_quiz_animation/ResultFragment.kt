@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import ru.gb.android.hw.m8_quiz_animation.databinding.FragmentResultBinding
 
@@ -24,12 +25,18 @@ class ResultFragment : Fragment() {
         val view = binding.root
         val results = args.result
         binding.result.setText(results)
-        binding.button.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_resultFragment_to_quizFragment)
-            //findNavController().navigate(R.id.action_resultFragment_to_quizFragment)
-        }
+
         return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.button.setOnClickListener {
+            //Navigation.findNavController(it).navigate(R.id.action_resultFragment_to_quizFragment)
+            findNavController().navigate(R.id.action_resultFragment_to_quizFragment)
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
