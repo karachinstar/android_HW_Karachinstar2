@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.m9_quiz_localization_resources" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryDark">@color/red</item>
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+    <style name="questionsStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/opensans_bold</item>
+    </style>
+
+
+    <style name="Theme.m9_quiz_localization" parent="Base.Theme.m9_quiz_localization_resources" />
+</resources>

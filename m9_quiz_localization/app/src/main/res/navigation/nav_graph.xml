@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools2="http://schemas.android.com/tools"
+    app:startDestination="@id/startFragment">
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="ru.gb.android.hw.m9_quiz_localization.QuizFragment"
+        android:label="fragment_quiz"
+        tools2:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_quizFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_enter"
+            app:popExitAnim="@anim/animation_exit"
+            app:popUpTo="@id/startFragment" />
+        <action
+            android:id="@+id/action_quizFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_enter"
+            app:popExitAnim="@anim/animation_exit"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="ru.gb.android.hw.m9_quiz_localization.ResultFragment"
+        android:label="fragment_result"
+        tools2:layout="@layout/fragment_result" >
+        <argument
+            android:name="result"
+            app:argType="string"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_resultFragment_to_quizFragment"
+            app:destination="@id/quizFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_enter"
+            app:popExitAnim="@anim/animation_exit"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="ru.gb.android.hw.m9_quiz_localization.StartFragment"
+        android:label="fragment_start"
+        tools2:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_quizFragment"
+            app:destination="@id/quizFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_enter"
+            app:popExitAnim="@anim/animation_exit"
+            app:popUpTo="@id/quizFragment" />
+    </fragment>
+</navigation>
