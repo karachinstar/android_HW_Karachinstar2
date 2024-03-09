@@ -1,29 +1,24 @@
 package ru.gb.android.hw.m9_quiz_localization
 
-import android.graphics.drawable.RippleDrawable
+import android.icu.util.Calendar
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
 import ru.gb.android.hw.m9_quiz_localization.databinding.FragmentStartBinding
+import java.text.SimpleDateFormat
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [StartFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class StartFragment : Fragment() {
     private var _binding: FragmentStartBinding? = null
     private val binding get() = _binding!!
+    val calendar = Calendar.getInstance()
+    val dateFormat = SimpleDateFormat("dd-MM-yy")
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +35,16 @@ class StartFragment : Fragment() {
 
         }.start()
 
+        binding.birthdayMan.setOnClickListener {
+            val dateDialog = MaterialDatePicker.Builder.datePicker()
+                .setTitleText(resources.getString(R.string.enterYourDateOfBirthTitle))
+                .build()
+            dateDialog.addOnPositiveButtonClickListener { timeInMillis ->
+                calendar.timeInMillis = timeInMillis
+                Snackbar.make(binding.birthdayMan, "${getText((R.string.snackbarStart))} " + dateFormat.format(calendar.time), Snackbar.LENGTH_SHORT).show()
+            }
+            dateDialog.show(parentFragmentManager, "Asd")
+        }
 
         return view
     }

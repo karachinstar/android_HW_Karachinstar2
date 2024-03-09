@@ -20,8 +20,9 @@
 
     <ScrollView
         android:id="@+id/questions"
-        android:layout_width="388dp"
-        android:layout_height="619dp"
+        android:layout_width="376dp"
+        android:layout_height="540dp"
+        android:layout_margin="16dp"
         app:layout_constraintBottom_toTopOf="@id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
