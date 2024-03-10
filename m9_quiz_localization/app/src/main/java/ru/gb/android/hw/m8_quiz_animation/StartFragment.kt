@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import ru.gb.android.hw.m9_quiz_localization.databinding.FragmentStartBinding
@@ -36,7 +37,11 @@ class StartFragment : Fragment() {
         }.start()
 
         binding.birthdayMan.setOnClickListener {
+            val constraints = CalendarConstraints.Builder()
+                .setOpenAt(calendar.timeInMillis)
+                .build()
             val dateDialog = MaterialDatePicker.Builder.datePicker()
+                .setCalendarConstraints(constraints)
                 .setTitleText(resources.getString(R.string.enterYourDateOfBirthTitle))
                 .build()
             dateDialog.addOnPositiveButtonClickListener { timeInMillis ->
