@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">m10_timer_life_cycle</string>
+    <string name="textWindows">Timer</string>
+    <string name="textButton">Start</string>
+</resources>
