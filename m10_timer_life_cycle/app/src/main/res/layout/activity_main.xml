@@ -8,6 +8,8 @@
     android:layout_margin="18dp"
     tools:context=".MainActivity">
 
+
+
     <TextView
         android:id="@+id/nameWindow"
         android:layout_width="wrap_content"
