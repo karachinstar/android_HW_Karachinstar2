@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import ru.gb.android.hw.m12_mvvm.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -17,41 +19,65 @@ class MainFragment : Fragment() {
     }
 
     private val viewModel: MainViewModel by viewModels()
+    var _binding: FragmentMainBinding? = null
+    private val binding: FragmentMainBinding
+        get() {
+            return _binding!!
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        binding.buttonSearch.isEnabled = false
-
-        viewModel.isSearching.observe(viewLifecycleOwner, { isSearching ->
-            binding.progress.visibility = if (isSearching) View.VISIBLE else View.GONE
-        })
-
-        viewModel.searchResult.observe(viewLifecycleOwner, { result ->
-            binding.searchResults.text = result
-        })
-
-        binding.searchEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-            }
-
-            // После изменения текста
-            override fun afterTextChanged(s: Editable) {
-                binding.buttonSearch.isEnabled = s.length >= 3 && !viewModel.isSearchInProgress
-            }
-        })
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.buttonSearch.setOnClickListener {
-            val query = binding.searchEditText.text.toString()
-            viewModel.onButtonSearchClick(query)
+            viewModel.onButtonSearchClick(binding.searchEditText.text.toString())
         }
 
-        return binding.root
+        viewLifecycleOwner.lifecycleScope
+            .launchWhenStarted {
+                viewModel.state
+                    .collect { state ->
+                        when (state) {
+                            State.Loading -> {
+                                binding.progress.isVisible = true
+                                binding.buttonSearch.isEnabled = false
+                            }
+
+                            State.Success -> {
+                                binding.progress.isVisible = false
+                                binding.searchEditText.addTextChangedListener(object : TextWatcher {
+                                    override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                                    }
+
+                                    override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                                    }
+
+                                    // После изменения текста
+                                    override fun afterTextChanged(s: Editable) {
+                                        binding.buttonSearch.isEnabled = s.length >= 3
+                                    }
+                                })
+                            }
+
+                            is State.Result -> {
+                                binding.buttonSearch.isEnabled = true
+                                binding.searchResults.text = state.value
+                            }
+                        }
+                    }
+            }
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
