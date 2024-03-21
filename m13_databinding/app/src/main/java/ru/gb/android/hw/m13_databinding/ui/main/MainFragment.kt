@@ -39,11 +39,6 @@ class MainFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.editText.observe(viewLifecycleOwner, Observer {
-            if (binding.search.text.length >= 3){
-                viewModel.onButtonSearchClick(it.toString())
-            }
-        })
     }
 
 
