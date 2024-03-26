@@ -60,6 +60,7 @@ class MainFragment : Fragment() {
                     twNationality.text = person.results[0].nat
                     twFirstName.text = person.results[0].name.first
                     twLastName.text = person.results[0].name.last
+                    twStreetAdnHome.text = person.results[0].location.street.name + " street, h. " + person.results[0].location.street.number.toString()
                 }
 
             }
