@@ -6,13 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.gb.android.lession14.m14_retrofit.databinding.FragmentMainBinding
+import ru.gb.android.lession14.m14_retrofit.ui.main.retrofit.Person
 import ru.gb.android.lession14.m14_retrofit.ui.main.retrofit.PersonAPI
 
 class MainFragment : Fragment() {
@@ -35,20 +39,26 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://randomuser.me")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val personApi = retrofit.create(PersonAPI::class.java)
-        update(personApi)
+        viewModel.getPerson.onEach {
+            if (it != null) {
+                update(it)
+            }
+        }.launchIn(lifecycleScope)
+
+        if (savedInstanceState == null) {
+            lifecycleScope.launch {
+                viewModel.update()
+            }
+        }
         binding.bUpdate.setOnClickListener {
-            update(personApi)
+            lifecycleScope.launch {
+                viewModel.update()
+            }
         }
     }
 
-    private fun update(personApi: PersonAPI) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val person = personApi.getPersonByRandom()
+    private fun update(person: Person) {
+        lifecycleScope.launch(Dispatchers.IO){
             activity?.runOnUiThread {
                 binding.apply {
                     Picasso.get().load(person.results[0].picture.large).into(iwPhoto)
