@@ -35,6 +35,7 @@ import java.util.Locale
 import java.util.concurrent.Executor
 import javax.inject.Inject
 
+@Suppress("DEPRECATION")
 @AndroidEntryPoint
 class TakePhotoFragment : Fragment() {
 
@@ -86,7 +87,7 @@ class TakePhotoFragment : Fragment() {
         if (isAllGranted) {
             startCamera()
         } else {
-            launcher.launch(REQUEST_PERMISSIONS)
+            requestPermissions(REQUEST_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
     }
 
@@ -169,6 +170,7 @@ class TakePhotoFragment : Fragment() {
     companion object {
         private const val FILE_NAME_FORMAT = "dd.MM.YYYY HH:mm:ss"
         private const val VALUE_TYPE = "image/jpeg"
+        private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUEST_PERMISSIONS: Array<String> = buildList {
             add(android.Manifest.permission.CAMERA)
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
