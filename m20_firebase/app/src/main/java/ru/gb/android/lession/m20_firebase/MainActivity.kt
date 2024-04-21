@@ -9,6 +9,8 @@ import android.media.RingtoneManager
 import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.util.Log
+
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.activity.result.contract.ActivityResultContracts
@@ -18,6 +20,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.RemoteMessage
 import org.osmdroid.config.Configuration
 import org.osmdroid.util.GeoPoint
@@ -69,6 +72,10 @@ class MainActivity : AppCompatActivity() {
         addContentView(crashButton, ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT))
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+            Log.d("registration token", it.result)
+        }
     }
 
     override fun onResume() {
@@ -139,7 +146,7 @@ class MainActivity : AppCompatActivity() {
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle("Hello my friend")
             .setContentText("Ты в своей точке положения!")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
             .build()
